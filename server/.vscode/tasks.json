@@ -1,13 +1,10 @@
 {
         // See https://go.microsoft.com/fwlink/?LinkId=733558
     // for the documentation about the tasks.json format
-    "version": "0.1.0",
-    "command": "go",//命令 xxx.exe
-    "isShellCommand": true,
+    "version": "2.0.0",
+    "command": "go",
     //"args": ["build","-v","${file}"],//固定参数，多的用逗号分割
-    "echoCommand":true,//是否显示命令
-    "showOutput": "always",
-    "suppressTaskName": true,//
+    "echoCommand": true, //
     "options": {
         "env": {
             "GOPATH": "e:\\gopath;${workspaceRoot}"//工程目录和gopath
@@ -15,15 +12,29 @@
     },
     
     "tasks": [
-        { 
-            "taskName": "build",
-            "args": ["build","-v","server"],
-            "echoCommand": true
+        {
+            "label": "build",
+            "type": "shell",
+            "args": [
+                "build",
+                "-v",
+                "server"
+            ],
+            "problemMatcher": [],
+            "group": {
+                "_id": "build",
+                "isDefault": false
+            }
         },
-        { 
-            "taskName": "install",
-            "args": ["install","-v","server"]//"${fileBasenameNoExtension}",
-            
+        {
+            "label": "install",
+            "type": "shell",
+            "args": [
+                "install",
+                "-v",
+                "server"
+            ],
+            "problemMatcher": []
         }
     ]
 }
